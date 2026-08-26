@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rasel Mia - AI Content & Automation Specialist | Digital Marketing Expert</title>
+  <meta name="description" content="Turning Ideas Into AI-Powered Digital Experiences & Marketing Solutions.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Dark Mode Defaults */
+    html.dark {
+      color-scheme: dark;
+      background-color: #070707;
+      color: #F5F5F5;
+    }
+
+    /* Light / White Mode Overrides */
+    html.light {
+      color-scheme: light;
+      background-color: #F8FAFC !important;
+      color: #0F172A !important;
+    }
+
+    html.light body {
+      background-color: #F8FAFC !important;
+      color: #0F172A !important;
+    }
+
+    html.light .bg-\[\#070707\],
+    html.light .bg-\[\#070707\]\/85,
+    html.light .bg-\[\#09090b\],
+    html.light .bg-\[\#09090b\]\/50,
+    html.light .bg-\[\#09090c\]\/40,
+    html.light .bg-\[\#0a0a0a\],
+    html.light .bg-\[\#070709\] {
+      background-color: #F8FAFC !important;
+    }
+
+    html.light .bg-\[\#0c0c0e\],
+    html.light .bg-\[\#0c0c10\],
+    html.light .bg-\[\#0e0e12\],
+    html.light .bg-\[\#101010\],
+    html.light .bg-\[\#101014\],
+    html.light .bg-\[\#111115\],
+    html.light .bg-\[\#121216\],
+    html.light .bg-\[\#131318\],
+    html.light .bg-\[\#141416\],
+    html.light .bg-\[\#14141a\],
+    html.light .bg-\[\#161616\],
+    html.light .bg-\[\#16161c\],
+    html.light .bg-\[\#181820\] {
+      background-color: #FFFFFF !important;
+      border-color: #E2E8F0 !important;
+      box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.04) !important;
+    }
+
+    html.light header,
+    html.light nav,
+    html.light .bg-\[\#101010\]\/80 {
+      background-color: rgba(255, 255, 255, 0.92) !important;
+      border-color: #E2E8F0 !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04) !important;
+    }
+
+    html.light .text-white,
+    html.light .text-\[\#F5F5F5\] {
+      color: #0F172A !important;
+    }
+
+    html.light .text-zinc-300,
+    html.light .text-zinc-200,
+    html.light .text-zinc-100 {
+      color: #1E293B !important;
+    }
+
+    html.light .text-zinc-400 {
+      color: #475569 !important;
+    }
+
+    html.light .text-zinc-500 {
+      color: #64748B !important;
+    }
+
+    html.light .border-white\/\[0\.06\],
+    html.light .border-white\/\[0\.08\],
+    html.light .border-white\/\[0\.1\],
+    html.light .border-white\/\[0\.12\] {
+      border-color: #E2E8F0 !important;
+    }
+
+    html.light input,
+    html.light textarea {
+      background-color: #FFFFFF !important;
+      color: #0F172A !important;
+      border-color: #CBD5E1 !important;
+    }
+
+    html.light .bg-\[\#4F8CFF\],
+    html.light a.bg-\[\#4F8CFF\],
+    html.light button.bg-\[\#4F8CFF\] {
+      background-color: #2563EB !important;
+      color: #FFFFFF !important;
+    }
+
+    html.light .bg-\[\#4F8CFF\] * {
+      color: #FFFFFF !important;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #070707; }
+    html.light ::-webkit-scrollbar-track { background: #F1F5F9; }
+    ::-webkit-scrollbar-thumb { background: #1f1f23; border-radius: 4px; }
+    html.light ::-webkit-scrollbar-thumb { background: #CBD5E1; }
+  </style>
+</head>
+<body class="bg-[#070707] text-[#F5F5F5] selection:bg-[#4F8CFF]/20 selection:text-[#4F8CFF] transition-colors duration-300 font-sans min-h-screen">
+
+  <canvas id="ambientCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-70"></canvas>
+
+  <!-- Navigation -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#070707]/85 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-xl shadow-black/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+        <div class="relative w-9 h-9 rounded-full overflow-hidden border border-[#4F8CFF]/40 shadow-md shadow-[#4F8CFF]/20 bg-[#101010]">
+          <img src="assets/rasel-mia.jpeg" alt="Rasel Mia" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-white group-hover:text-[#4F8CFF] transition-colors">Rasel Mia</span>
+          <span class="text-[10px] text-zinc-400 font-mono tracking-tight hidden sm:inline-block">AI & Digital Marketing</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1 bg-[#101010]/80 border border-white/[0.06] rounded-full px-3 py-1.5 backdrop-blur-sm">
+        <a href="#home" class="px-3 py-1 rounded-full text-xs font-medium text-white hover:text-[#4F8CFF] transition-colors">Home</a>
+        <a href="#about" class="px-3 py-1 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition-colors">About</a>
+        <a href="#expertise" class="px-3 py-1 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition-colors">Expertise</a>
+        <a href="#projects" class="px-3 py-1 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition-colors">Projects</a>
+        <a href="#services" class="px-3 py-1 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition-colors">Services</a>
+        <a href="#contact" class="px-3 py-1 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <button id="themeToggleBtn" type="button" onclick="toggleTheme()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#16161a] hover:bg-[#202026] text-zinc-200 border border-white/[0.1] hover:border-[#4F8CFF]/50 transition-all text-xs font-medium focus:outline-none" title="Switch Dark / White Mode">
+          <span id="themeIcon">☀️</span>
+          <span id="themeLabel" class="hidden sm:inline-block text-[11px] font-mono">White Mode</span>
+        </button>
+
+        <a href="https://drive.google.com/drive/folders/1WflQMr6vlgr_fWmB8KeWdNhaVBFaV8JZ?usp=sharing" target="_blank" rel="noopener" class="hidden md:inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-full bg-[#16161a] text-zinc-200 border border-white/[0.1] hover:border-[#4F8CFF]/50 hover:text-white transition-all" title="Anyone with this link can view the portfolio">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          <span>Drive Portfolio</span>
+        </a>
+
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full bg-[#4F8CFF] text-white hover:bg-[#3371f2] transition-all shadow-md shadow-[#4F8CFF]/20">
+          <span>Let's Work Together</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#121216] border border-white/[0.08] text-xs font-mono text-zinc-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Open to Freelance & Collaboration Opportunities</span>
+          </div>
+
+          <div class="space-y-4">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Rasel Mia
+              <span class="block text-2xl sm:text-3xl lg:text-4xl text-[#4F8CFF] font-medium mt-2">
+                AI Content & Automation Specialist | Digital Marketing Expert
+              </span>
+            </h1>
+            <p class="text-base sm:text-lg text-zinc-400 font-normal max-w-2xl leading-relaxed">
+              I’m Rasel Mia, an AI-focused digital creator and digital marketing professional with experience in AI tools, prompt engineering, content creation, social media management, and digital marketing.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#contact" class="px-6 py-3.5 rounded-full bg-[#4F8CFF] text-white font-bold text-xs tracking-wide hover:bg-[#3371f2] transition-all shadow-lg shadow-[#4F8CFF]/25 inline-flex items-center gap-2">
+              <span>Start a Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1WflQMr6vlgr_fWmB8KeWdNhaVBFaV8JZ?usp=sharing" target="_blank" rel="noopener" class="px-6 py-3.5 rounded-full bg-[#161616] text-zinc-300 border border-white/[0.1] hover:border-[#4F8CFF]/50 hover:text-white transition-all text-xs font-mono inline-flex items-center gap-2">
+              <span>View Google Drive Work</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl bg-[#0c0c0e] border border-white/[0.08] p-5 sm:p-6 space-y-4 shadow-2xl">
+            <div class="relative aspect-[4/4.5] rounded-xl overflow-hidden bg-[#121216] border border-white/[0.08]">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Rasel Mia" class="w-full h-full object-cover object-top" />
+              <div class="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-[#070709]/80 backdrop-blur-md border border-white/[0.1] flex items-center justify-between text-xs font-mono">
+                <span class="text-white font-bold">Rasel Mia</span>
+                <span class="text-[#4F8CFF] font-bold">Bangladesh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06] bg-[#09090b]/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#101014] shadow-xl">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Workspace" class="w-full h-64 sm:h-80 object-cover" />
+            <div class="p-5 space-y-2">
+              <p class="text-sm italic text-zinc-300">"I combine AI, creativity, automation, and digital marketing to engineer smarter workflows and content systems."</p>
+              <div class="text-xs text-[#4F8CFF] font-mono">Bangladesh • raselislam7828@gmail.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-7 space-y-6">
+          <h2 class="text-3xl font-bold text-white tracking-tight">Bridging Generative AI with High-Impact Execution</h2>
+          <p class="text-base text-zinc-300 leading-relaxed">Specializing in bridging advanced artificial intelligence capabilities with strategic digital marketing and creative content production. Focused on developing scalable automated workflows, engineered prompt systems, high-engagement multimedia content, and data-backed digital campaigns that turn ideas into measurable growth.</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
+              <div class="text-2xl font-extrabold text-[#4F8CFF] font-mono">100+</div>
+              <div class="text-xs font-bold text-white mt-1">Prompt Frameworks</div>
+              <div class="text-[11px] text-zinc-400 mt-0.5">Engineered & Tested</div>
+            </div>
+            <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
+              <div class="text-2xl font-extrabold text-[#4F8CFF] font-mono">50+</div>
+              <div class="text-xs font-bold text-white mt-1">Creative Campaigns</div>
+              <div class="text-[11px] text-zinc-400 mt-0.5">Multi-platform Assets</div>
+            </div>
+            <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
+              <div class="text-2xl font-extrabold text-[#4F8CFF] font-mono">24/7</div>
+              <div class="text-xs font-bold text-white mt-1">Automated Systems</div>
+              <div class="text-[11px] text-zinc-400 mt-0.5">Scalable Workflows</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toolkit Section -->
+  <section id="expertise" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <h2 class="text-3xl font-bold text-white tracking-tight">Specialized AI & Growth Toolkit</h2>
+        <p class="text-sm text-zinc-400">Battle-tested tools and frameworks powering modern multi-channel automation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+          <h3 class="text-base font-bold text-white">Generative AI & LLMs</h3>
+          <p class="text-xs text-zinc-400">Advanced prompt engineering, multi-turn system prompts, and context optimization.</p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">ChatGPT Plus</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Claude 3.5</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Google Gemini</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">DeepSeek</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+          <h3 class="text-base font-bold text-white">AI Visual & Video Studio</h3>
+          <p class="text-xs text-zinc-400">High-fidelity photo realism, consistent character generation, and video synthesis.</p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Midjourney v6</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Kling AI</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Luma Dream Machine</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Runway Gen-3</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+          <h3 class="text-base font-bold text-white">Digital Marketing & SEO</h3>
+          <p class="text-xs text-zinc-400">Data-driven performance campaigns, keyword clusters, and high-conversion copy.</p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Meta Ads Manager</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Google Analytics 4</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">SEMrush</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Copywriting</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+          <h3 class="text-base font-bold text-white">Automation & Workflows</h3>
+          <p class="text-xs text-zinc-400">No-code automation pipes connecting social channels, lead funnels, and databases.</p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Make.com</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Zapier</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Notion Databases</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Airtable</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <h2 class="text-3xl font-bold text-white tracking-tight">Featured Projects</h2>
+        <p class="text-sm text-zinc-400">A snapshot of AI-driven content systems, automation pipelines, and marketing campaigns delivered end-to-end.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+          <h3 class="text-base font-bold text-white">AI Content Automation Pipeline</h3>
+          <p class="text-xs text-zinc-400">Make.com + prompt-engineered workflows that generate, schedule, and publish social content automatically.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+          <h3 class="text-base font-bold text-white">Prompt Framework Library</h3>
+          <p class="text-xs text-zinc-400">100+ tested prompt systems for marketing copy, SEO content, and creative campaign generation.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+          <h3 class="text-base font-bold text-white">Multi-Platform Ad Campaigns</h3>
+          <p class="text-xs text-zinc-400">Data-driven Meta & Google Ads campaigns with GA4 tracking dashboards and conversion optimization.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+          <h3 class="text-base font-bold text-white">AI Visual & Video Suite</h3>
+          <p class="text-xs text-zinc-400">Midjourney, Kling AI, and Runway-based production pipeline for brand imagery and short-form video.</p>
+        </div>
+      </div>
+
+      <!-- Google Drive Portfolio CTA Banner -->
+      <div class="max-w-5xl mx-auto text-center space-y-6 p-8 rounded-2xl bg-[#0c0c10] border border-[#4F8CFF]/30">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">Explore My Live Work Archive On Google Drive</h2>
+        <p class="text-sm text-zinc-400 max-w-xl mx-auto">Access original high-resolution graphic creatives, AI image batches, video workflows, and campaign case studies directly.</p>
+        <div>
+          <a href="https://drive.google.com/drive/folders/1WflQMr6vlgr_fWmB8KeWdNhaVBFaV8JZ?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#4F8CFF] text-white font-bold text-xs hover:bg-[#3371f2] shadow-lg shadow-[#4F8CFF]/20 transition-all">
+            <span>Open Google Drive Portfolio</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06] bg-[#09090b]/50">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <h2 class="text-3xl font-bold text-white tracking-tight">Services</h2>
+        <p class="text-sm text-zinc-400">Flexible engagement models across AI content, automation, and performance marketing.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+          <h3 class="text-base font-bold text-white">AI Content Creation</h3>
+          <p class="text-xs text-zinc-400">High-engagement multimedia content produced with generative AI tools, tailored to brand voice.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+          <h3 class="text-base font-bold text-white">Prompt Engineering & AI Consulting</h3>
+          <p class="text-xs text-zinc-400">Custom prompt systems and multi-turn workflows for teams adopting LLMs into their stack.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+          <h3 class="text-base font-bold text-white">Digital Marketing & SEO</h3>
+          <p class="text-xs text-zinc-400">Performance campaigns, keyword strategy, and high-conversion copywriting backed by analytics.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+          <h3 class="text-base font-bold text-white">Automation & Workflow Systems</h3>
+          <p class="text-xs text-zinc-400">No-code pipelines connecting social channels, lead funnels, and databases for hands-off operations.</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#4F8CFF] text-white font-bold text-xs hover:bg-[#3371f2] shadow-lg shadow-[#4F8CFF]/20 transition-all">
+          <span>Discuss Your Project</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-5 space-y-6">
+          <h2 class="text-3xl font-bold text-white tracking-tight">Let's Connect & Collaborate</h2>
+          <p class="text-sm text-zinc-400 leading-relaxed">Have an AI content pipeline, digital marketing campaign, or prompt automation requirement? Reach out directly.</p>
+
+          <div class="space-y-3 pt-2">
+            <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
+              <div class="text-[10px] font-mono text-zinc-500 uppercase">Email</div>
+              <a href="mailto:raselislam7828@gmail.com" class="text-xs font-semibold text-white hover:text-[#4F8CFF]">raselislam7828@gmail.com</a>
+            </div>
+            <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
+              <div class="text-[10px] font-mono text-zinc-500 uppercase">Phone & WhatsApp</div>
+              <a href="tel:01886-287828" class="text-xs font-semibold text-white hover:text-[#4F8CFF]">01886-287828</a>
+            </div>
+            <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
+              <div class="text-[10px] font-mono text-zinc-500 uppercase">Telegram</div>
+              <span class="text-xs font-semibold text-white">@Rasel7828</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+          <h3 class="text-lg font-bold text-white">Send Direct Message</h3>
+          <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been received. Rasel Mia will reach out shortly.');" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Your Name</label>
+                <input type="text" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#14141a] border border-white/[0.1] text-xs text-white focus:outline-none focus:border-[#4F8CFF]" placeholder="Your name..." />
+              </div>
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Your Email</label>
+                <input type="email" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#14141a] border border-white/[0.1] text-xs text-white focus:outline-none focus:border-[#4F8CFF]" placeholder="name@company.com" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs text-zinc-400 mb-1">Message</label>
+              <textarea rows="4" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#14141a] border border-white/[0.1] text-xs text-white focus:outline-none focus:border-[#4F8CFF]" placeholder="Tell me about your project or business goals..."></textarea>
+            </div>
+            <button type="submit" class="w-full py-3.5 rounded-lg bg-[#4F8CFF] text-white font-bold text-xs hover:bg-[#3371f2] transition-colors shadow-md shadow-[#4F8CFF]/20">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-white/[0.08] bg-[#070709] text-xs text-zinc-500">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <div class="flex flex-col items-center gap-4">
+        <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">Connect With Me</span>
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
+          <a href="https://www.facebook.com/share/1DZfzvxdtx/" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-full bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300 hover:border-[#4F8CFF]/50 hover:text-white transition-all">Facebook</a>
+          <a href="https://www.instagram.com/raselmia7828" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-full bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300 hover:border-[#4F8CFF]/50 hover:text-white transition-all">Instagram</a>
+          <a href="https://x.com/Rasel7828" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-full bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300 hover:border-[#4F8CFF]/50 hover:text-white transition-all">X (Twitter)</a>
+          <a href="https://www.linkedin.com/in/rasel-mia-b441651aa" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-full bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300 hover:border-[#4F8CFF]/50 hover:text-white transition-all">LinkedIn</a>
+          <a href="https://t.me/Rasel7828" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-full bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300 hover:border-[#4F8CFF]/50 hover:text-white transition-all">Telegram</a>
+          <a href="https://www.tiktok.com/@rasel_7828" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-full bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300 hover:border-[#4F8CFF]/50 hover:text-white transition-all">TikTok</a>
+          <button type="button" onclick="copyDiscordHandle(this)" class="px-3.5 py-1.5 rounded-full bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300 hover:border-[#4F8CFF]/50 hover:text-white transition-all focus:outline-none" title="Discord usernames aren't linkable — click to copy">Discord: rasel7828</button>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="font-bold text-white">Rasel Mia</span>
+          <span>•</span>
+          <span>AI Content & Automation Specialist</span>
+        </div>
+        <div>
+          © <span id="year">2026</span> Rasel Mia. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Theme Switcher & Canvas Animation -->
+  <script>
+    function updateThemeUI(isDark) {
+      const html = document.documentElement;
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      
+      if (isDark) {
+        html.classList.add('dark');
+        html.classList.remove('light');
+        if (icon) icon.textContent = '☀️';
+        if (label) label.textContent = 'White Mode';
+      } else {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        if (icon) icon.textContent = '🌙';
+        if (label) label.textContent = 'Dark Mode';
+      }
+    }
+
+    function copyDiscordHandle(btn) {
+      const original = btn.textContent;
+      navigator.clipboard.writeText('rasel7828').then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = original; }, 1500);
+      });
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const newDark = !isDark;
+      localStorage.setItem('rasel_theme', newDark ? 'dark' : 'light');
+      updateThemeUI(newDark);
+    }
+
+    (function() {
+      const saved = localStorage.getItem('rasel_theme');
+      const isDark = saved ? saved === 'dark' : true;
+      updateThemeUI(isDark);
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const canvas = document.getElementById('ambientCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particleCount = Math.min(Math.floor(width / 35), 45);
+      const particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          radius: Math.random() * 1.5 + 1,
+          alpha: Math.random() * 0.4 + 0.15
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        const isLight = document.documentElement.classList.contains('light');
+
+        ctx.strokeStyle = isLight ? 'rgba(0, 0, 0, 0.035)' : 'rgba(255, 255, 255, 0.015)';
+        ctx.lineWidth = 1;
+        const gridSize = 64;
+        for (let x = 0; x < width; x += gridSize) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, height);
+          ctx.stroke();
+        }
+        for (let y = 0; y < height; y += gridSize) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(width, y);
+          ctx.stroke();
+        }
+
+        for (let i = 0; i < particles.length; i++) {
+          const p1 = particles[i];
+          p1.x += p1.vx;
+          p1.y += p1.vy;
+          if (p1.x < 0) p1.x = width;
+          if (p1.x > width) p1.x = 0;
+          if (p1.y < 0) p1.y = height;
+          if (p1.y > height) p1.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
+          ctx.fillStyle = isLight ? 'rgba(37, 99, 235, ' + (p1.alpha * 0.7) + ')' : 'rgba(79, 140, 255, ' + p1.alpha + ')';
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 140) {
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = isLight ? 'rgba(37, 99, 235, ' + ((1 - dist / 140) * 0.12) + ')' : 'rgba(79, 140, 255, ' + ((1 - dist / 140) * 0.12) + ')';
+              ctx.lineWidth = 0.75;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+</body>
+</html>
