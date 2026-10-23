@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rasel Mia - AI Content & Automation Specialist | Digital Marketing Expert</title>
-  <meta name="description" content="Turning Ideas Into AI-Powered Digital Experiences & Marketing Solutions.">
+  <meta name="description" content="Rasel Mia — AI Content & Automation Specialist and Digital Marketing Expert from Bangladesh. Turning ideas into AI-powered digital experiences and marketing solutions.">
+  <meta property="og:title" content="Rasel Mia — AI Content & Automation Specialist">
+  <meta property="og:description" content="Turning ideas into AI-powered digital experiences & marketing solutions.">
+  <meta property="og:image" content="assets/photos/rasel-studio.jpg">
+  <meta name="theme-color" content="#070707">
+  <link rel="icon" href="assets/rasel-mia.jpeg">
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Syne (display), Plus Jakarta Sans (body), JetBrains Mono, Hind Siliguri (Bangla) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +31,8 @@
             }
           },
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'Hind Siliguri', 'sans-serif'],
+            display: ['Syne', 'Plus Jakarta Sans', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace']
           }
         }
@@ -37,7 +43,7 @@
   <style>
     html {
       scroll-behavior: smooth;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
     }
 
     /* Dark Mode Defaults */
@@ -95,6 +101,11 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.04) !important;
     }
 
+    html.light .bg-\[\#070709\]\/80 {
+      background-color: rgba(255, 255, 255, 0.85) !important;
+      border-color: #E2E8F0 !important;
+    }
+
     html.light .text-white,
     html.light .text-\[\#F5F5F5\] {
       color: #0F172A !important;
@@ -139,14 +150,66 @@
       color: #FFFFFF !important;
     }
 
+    /* Elements that sit on top of photos / AI art keep light text in both themes */
+    html.light .on-media,
+    html.light .on-media .text-white,
+    html.light .on-media .text-zinc-300,
+    html.light .on-media .text-zinc-400 {
+      color: #F5F5F5 !important;
+    }
+
+    html.light .hero-art { opacity: 0.18 !important; }
+
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #070707; }
     html.light ::-webkit-scrollbar-track { background: #F1F5F9; }
     ::-webkit-scrollbar-thumb { background: #1f1f23; border-radius: 4px; }
     html.light ::-webkit-scrollbar-thumb { background: #CBD5E1; }
+
+    /* Gradient headline text */
+    .text-gradient {
+      background: linear-gradient(100deg, #4F8CFF 0%, #8B7BFF 45%, #C084FC 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Rotating glow ring around the hero portrait */
+    .glow-ring {
+      background: conic-gradient(from var(--angle, 0deg), #4F8CFF, #8B7BFF, #C084FC, transparent 60%, #4F8CFF);
+      animation: spin-ring 8s linear infinite;
+    }
+    @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+    @keyframes spin-ring { to { --angle: 360deg; } }
+
+    @keyframes float-y { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .float-slow { animation: float-y 6s ease-in-out infinite; }
+    .float-slower { animation: float-y 8s ease-in-out infinite; animation-delay: -2s; }
+
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    .marquee-track { animation: marquee 32s linear infinite; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Chat bubble typing dots */
+    @keyframes blink { 0%, 80%, 100% { opacity: .2; } 40% { opacity: 1; } }
+    .typing span { animation: blink 1.2s infinite; }
+    .typing span:nth-child(2) { animation-delay: .2s; }
+    .typing span:nth-child(3) { animation-delay: .4s; }
+
+    .chat-md a { color: #4F8CFF; text-decoration: underline; word-break: break-all; }
+    .chat-md ul { list-style: disc; padding-left: 1.1rem; margin: .25rem 0; }
+    .chat-md p + p { margin-top: .4rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glow-ring, .float-slow, .float-slower, .marquee-track { animation: none; }
+      .reveal { opacity: 1; transform: none; }
+    }
   </style>
 </head>
-<body class="bg-[#070707] text-[#F5F5F5] selection:bg-[#4F8CFF]/20 selection:text-[#4F8CFF] transition-colors duration-300 font-sans min-h-screen">
+<body class="bg-[#070707] text-[#F5F5F5] selection:bg-[#4F8CFF]/20 selection:text-[#4F8CFF] transition-colors duration-300 font-sans min-h-screen overflow-x-hidden">
 
   <canvas id="ambientCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-70"></canvas>
 
@@ -163,7 +226,7 @@
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-1 bg-[#101010]/80 border border-white/[0.06] rounded-full px-3 py-1.5 backdrop-blur-sm">
+      <nav class="hidden lg:flex items-center gap-1 bg-[#101010]/80 border border-white/[0.06] rounded-full px-3 py-1.5 backdrop-blur-sm">
         <a href="#home" class="px-3 py-1 rounded-full text-xs font-medium text-white hover:text-[#4F8CFF] transition-colors">Home</a>
         <a href="#about" class="px-3 py-1 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition-colors">About</a>
         <a href="#expertise" class="px-3 py-1 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition-colors">Expertise</a>
@@ -172,48 +235,80 @@
         <a href="#contact" class="px-3 py-1 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition-colors">Contact</a>
       </nav>
 
-      <div class="flex items-center gap-2.5">
-        <button id="themeToggleBtn" type="button" onclick="toggleTheme()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#16161a] hover:bg-[#202026] text-zinc-200 border border-white/[0.1] hover:border-[#4F8CFF]/50 transition-all text-xs font-medium focus:outline-none" title="Switch Dark / White Mode">
-          <span id="themeIcon">☀️</span>
-          <span id="themeLabel" class="hidden sm:inline-block text-[11px] font-mono">White Mode</span>
+      <div class="flex items-center gap-2">
+        <button type="button" onclick="openChat()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#8B7BFF]/50 bg-gradient-to-r from-[#4F8CFF]/15 to-[#C084FC]/15 text-xs font-semibold text-white hover:border-[#C084FC] transition-all focus:outline-none" title="Chat with Rasel's AI assistant">
+          <span class="relative flex w-2 h-2"><span class="absolute inline-flex w-full h-full rounded-full bg-[#8B7BFF] opacity-75 animate-ping"></span><span class="relative inline-flex w-2 h-2 rounded-full bg-[#8B7BFF]"></span></span>
+          <span>Ask AI</span>
         </button>
 
-        <a href="https://drive.google.com/drive/folders/1WflQMr6vlgr_fWmB8KeWdNhaVBFaV8JZ?usp=sharing" target="_blank" rel="noopener" class="hidden md:inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-full bg-[#16161a] text-zinc-200 border border-white/[0.1] hover:border-[#4F8CFF]/50 hover:text-white transition-all" title="Anyone with this link can view the portfolio">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-          <span>Drive Portfolio</span>
-        </a>
+        <button id="themeToggleBtn" type="button" onclick="toggleTheme()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#16161a] hover:bg-[#202026] text-zinc-200 border border-white/[0.1] hover:border-[#4F8CFF]/50 transition-all text-xs font-medium focus:outline-none" title="Switch Dark / White Mode">
+          <span id="themeIcon">☀️</span>
+          <span id="themeLabel" class="hidden xl:inline-block text-[11px] font-mono">White Mode</span>
+        </button>
 
         <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full bg-[#4F8CFF] text-white hover:bg-[#3371f2] transition-all shadow-md shadow-[#4F8CFF]/20">
           <span>Let's Work Together</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </a>
+
+        <button id="menuBtn" type="button" onclick="toggleMenu()" class="lg:hidden p-2 rounded-full bg-[#16161a] border border-white/[0.1] text-zinc-200 focus:outline-none" aria-label="Open menu">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="lg:hidden hidden max-w-7xl mx-auto px-4 pt-3">
+      <div class="grid grid-cols-2 gap-2 p-3 rounded-2xl bg-[#101014] border border-white/[0.08]">
+        <a href="#about" onclick="toggleMenu()" class="px-3 py-2 rounded-lg text-sm text-zinc-300 hover:text-white">About</a>
+        <a href="#expertise" onclick="toggleMenu()" class="px-3 py-2 rounded-lg text-sm text-zinc-300 hover:text-white">Expertise</a>
+        <a href="#projects" onclick="toggleMenu()" class="px-3 py-2 rounded-lg text-sm text-zinc-300 hover:text-white">Projects</a>
+        <a href="#services" onclick="toggleMenu()" class="px-3 py-2 rounded-lg text-sm text-zinc-300 hover:text-white">Services</a>
+        <a href="#gallery" onclick="toggleMenu()" class="px-3 py-2 rounded-lg text-sm text-zinc-300 hover:text-white">Gallery</a>
+        <a href="#contact" onclick="toggleMenu()" class="px-3 py-2 rounded-lg text-sm text-zinc-300 hover:text-white">Contact</a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-7 space-y-8">
+  <section id="home" class="relative z-10 pt-28 sm:pt-32 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <img src="assets/ai/ai-hero-bg.jpg" alt="" aria-hidden="true" class="hero-art absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+
+    <div class="relative max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 items-center">
+        <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
           <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#121216] border border-white/[0.08] text-xs font-mono text-zinc-300">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span>Open to Freelance & Collaboration Opportunities</span>
           </div>
 
-          <div class="space-y-4">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Rasel Mia
-              <span class="block text-2xl sm:text-3xl lg:text-4xl text-[#4F8CFF] font-medium mt-2">
-                AI Content & Automation Specialist | Digital Marketing Expert
-              </span>
+          <div class="space-y-5">
+            <p class="text-xs sm:text-sm font-mono uppercase tracking-[0.3em] text-[#4F8CFF]">Hi, I'm Rasel Mia</p>
+            <h1 class="font-display text-[2.6rem] sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.04]">
+              Turning ideas into <span class="text-gradient whitespace-nowrap">AI-powered</span> growth.
             </h1>
-            <p class="text-base sm:text-lg text-zinc-400 font-normal max-w-2xl leading-relaxed">
-              I’m Rasel Mia, an AI-focused digital creator and digital marketing professional with experience in AI tools, prompt engineering, content creation, social media management, and digital marketing.
+            <p class="text-base sm:text-lg text-zinc-400 font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              AI Content & Automation Specialist and Digital Marketing Expert. I combine prompt engineering, generative visuals and smart automation to build content systems that work 24/7 for your brand.
             </p>
           </div>
 
-          <div class="flex flex-wrap gap-4 pt-2">
+          <!-- Ask AI prompt bar -->
+          <form id="heroAskForm" class="max-w-xl mx-auto lg:mx-0">
+            <div class="p-[1px] rounded-2xl bg-gradient-to-r from-[#4F8CFF] via-[#8B7BFF] to-[#C084FC] shadow-lg shadow-[#4F8CFF]/20">
+              <div class="flex items-center gap-2 rounded-2xl bg-[#0c0c10] pl-4 pr-1.5 py-1.5">
+                <svg class="w-5 h-5 text-[#8B7BFF] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.8 3.5l1.2 3.3 3.3 1.2-3.3 1.2-1.2 3.3-1.2-3.3L5.3 8l3.3-1.2 1.2-3.3zM17 12l.8 2.2L20 15l-2.2.8L17 18l-.8-2.2L14 15l2.2-.8L17 12z"/></svg>
+                <input id="heroAskInput" type="text" maxlength="500" autocomplete="off" class="flex-1 min-w-0 bg-transparent border-0 text-sm text-white placeholder:text-zinc-500 focus:outline-none py-2" placeholder="Ask my AI anything — services, skills, pricing…" />
+                <button type="submit" class="shrink-0 px-4 py-2.5 rounded-xl bg-[#4F8CFF] text-white text-xs font-bold hover:bg-[#3371f2] transition-colors">Ask</button>
+              </div>
+            </div>
+            <div class="flex flex-wrap justify-center lg:justify-start gap-2 mt-3">
+              <button type="button" data-ask="What services do you offer?" class="ask-chip px-3 py-1 rounded-full bg-[#121216] border border-white/[0.08] text-[11px] text-zinc-400 hover:text-white hover:border-[#4F8CFF]/50 transition-all">What services do you offer?</button>
+              <button type="button" data-ask="Which AI tools do you use?" class="ask-chip px-3 py-1 rounded-full bg-[#121216] border border-white/[0.08] text-[11px] text-zinc-400 hover:text-white hover:border-[#4F8CFF]/50 transition-all">Which AI tools do you use?</button>
+              <button type="button" data-ask="আপনার সাথে কিভাবে কাজ শুরু করব?" class="ask-chip px-3 py-1 rounded-full bg-[#121216] border border-white/[0.08] text-[11px] text-zinc-400 hover:text-white hover:border-[#4F8CFF]/50 transition-all">আপনার সাথে কিভাবে কাজ শুরু করব?</button>
+            </div>
+          </form>
+
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3">
             <a href="#contact" class="px-6 py-3.5 rounded-full bg-[#4F8CFF] text-white font-bold text-xs tracking-wide hover:bg-[#3371f2] transition-all shadow-lg shadow-[#4F8CFF]/25 inline-flex items-center gap-2">
               <span>Start a Project</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -223,16 +318,43 @@
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
             </a>
           </div>
+
+          <div class="grid grid-cols-3 gap-3 max-w-md mx-auto lg:mx-0 pt-2">
+            <div><div class="font-display text-2xl sm:text-3xl font-extrabold text-white">100+</div><div class="text-[11px] text-zinc-500">Prompt frameworks</div></div>
+            <div><div class="font-display text-2xl sm:text-3xl font-extrabold text-white">50+</div><div class="text-[11px] text-zinc-500">Campaigns delivered</div></div>
+            <div><div class="font-display text-2xl sm:text-3xl font-extrabold text-white">24/7</div><div class="text-[11px] text-zinc-500">Automated systems</div></div>
+          </div>
         </div>
 
+        <!-- Portrait composition -->
         <div class="lg:col-span-5">
-          <div class="rounded-2xl bg-[#0c0c0e] border border-white/[0.08] p-5 sm:p-6 space-y-4 shadow-2xl">
-            <div class="relative aspect-[4/4.5] rounded-xl overflow-hidden bg-[#121216] border border-white/[0.08]">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Rasel Mia" class="w-full h-full object-cover object-top" />
-              <div class="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-[#070709]/80 backdrop-blur-md border border-white/[0.1] flex items-center justify-between text-xs font-mono">
-                <span class="text-white font-bold">Rasel Mia</span>
-                <span class="text-[#4F8CFF] font-bold">Bangladesh</span>
+          <div class="relative mx-auto w-[78%] sm:w-[62%] lg:w-full max-w-sm">
+            <div class="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-[#4F8CFF]/30 via-[#8B7BFF]/20 to-[#C084FC]/30 blur-3xl"></div>
+            <div class="relative p-[2px] rounded-[2rem] glow-ring">
+              <div class="relative aspect-[9/14] rounded-[calc(2rem-2px)] overflow-hidden bg-[#0c0c0e]">
+                <img src="assets/photos/rasel-studio.jpg" alt="Rasel Mia — portrait" class="w-full h-full object-cover object-[50%_35%]" fetchpriority="high" />
+                <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="on-media absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                  <div>
+                    <div class="font-display text-lg font-bold text-white">Rasel Mia</div>
+                    <div class="text-[11px] font-mono text-zinc-300">AI Creator • Marketer</div>
+                  </div>
+                  <span class="text-[11px] font-mono font-bold text-[#4F8CFF]">Bangladesh</span>
+                </div>
               </div>
+            </div>
+
+            <!-- Floating secondary photo -->
+            <div class="float-slow absolute -left-10 sm:-left-16 top-10 w-24 sm:w-32 rotate-[-6deg] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl shadow-black/60">
+              <img src="assets/photos/rasel-outdoor.jpg" alt="Rasel Mia outdoors" class="w-full aspect-[3/4] object-cover object-top" />
+            </div>
+
+            <!-- Floating chips -->
+            <div class="float-slower on-media absolute -right-4 sm:-right-10 top-1/3 px-3 py-2 rounded-xl bg-[#070709]/80 backdrop-blur-md border border-white/[0.12] shadow-xl text-[11px] font-mono text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#4F8CFF]"></span> Prompt Engineering
+            </div>
+            <div class="float-slow on-media absolute -left-4 sm:-left-8 bottom-24 px-3 py-2 rounded-xl bg-[#070709]/80 backdrop-blur-md border border-white/[0.12] shadow-xl text-[11px] font-mono text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#C084FC]"></span> AI Automation
             </div>
           </div>
         </div>
@@ -240,35 +362,46 @@
     </div>
   </section>
 
+  <!-- Tool marquee -->
+  <div class="relative z-10 border-y border-white/[0.06] bg-[#09090b]/50 py-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
+    <div class="marquee-track flex w-max gap-10 text-sm font-mono text-zinc-500 whitespace-nowrap">
+      <span>ChatGPT</span><span>✦</span><span>Claude</span><span>✦</span><span>Gemini</span><span>✦</span><span>Midjourney</span><span>✦</span><span>Kling AI</span><span>✦</span><span>Runway</span><span>✦</span><span>Luma</span><span>✦</span><span>Make.com</span><span>✦</span><span>Zapier</span><span>✦</span><span>Meta Ads</span><span>✦</span><span>GA4</span><span>✦</span><span>SEMrush</span><span>✦</span>
+      <span>ChatGPT</span><span>✦</span><span>Claude</span><span>✦</span><span>Gemini</span><span>✦</span><span>Midjourney</span><span>✦</span><span>Kling AI</span><span>✦</span><span>Runway</span><span>✦</span><span>Luma</span><span>✦</span><span>Make.com</span><span>✦</span><span>Zapier</span><span>✦</span><span>Meta Ads</span><span>✦</span><span>GA4</span><span>✦</span><span>SEMrush</span><span>✦</span>
+    </div>
+  </div>
+
   <!-- About Section -->
-  <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06] bg-[#09090b]/50">
+  <section id="about" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-5">
-          <div class="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#101014] shadow-xl">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Workspace" class="w-full h-64 sm:h-80 object-cover" />
-            <div class="p-5 space-y-2">
-              <p class="text-sm italic text-zinc-300">"I combine AI, creativity, automation, and digital marketing to engineer smarter workflows and content systems."</p>
-              <div class="text-xs text-[#4F8CFF] font-mono">Bangladesh • raselislam7828@gmail.com</div>
+        <div class="lg:col-span-6 reveal">
+          <div class="relative rounded-3xl overflow-hidden border border-white/[0.08] bg-[#101014] shadow-2xl">
+            <img src="assets/ai/ai-about.jpg" alt="AI-generated artwork: a crystal brain streaming content and analytics" loading="lazy" class="w-full aspect-[16/11] object-cover" />
+            <div class="on-media absolute inset-x-0 bottom-0 p-5 sm:p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
+              <p class="text-sm sm:text-base italic text-white">"I combine AI, creativity, automation, and digital marketing to engineer smarter workflows and content systems."</p>
+              <div class="text-xs text-[#4F8CFF] font-mono mt-2">Bangladesh • raselislam7828@gmail.com</div>
             </div>
+            <span class="on-media absolute top-4 left-4 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur border border-white/20 text-[10px] font-mono text-white">✦ AI-generated art</span>
           </div>
         </div>
-        <div class="lg:col-span-7 space-y-6">
-          <h2 class="text-3xl font-bold text-white tracking-tight">Bridging Generative AI with High-Impact Execution</h2>
-          <p class="text-base text-zinc-300 leading-relaxed">Specializing in bridging advanced artificial intelligence capabilities with strategic digital marketing and creative content production. Focused on developing scalable automated workflows, engineered prompt systems, high-engagement multimedia content, and data-backed digital campaigns that turn ideas into measurable growth.</p>
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+        <div class="lg:col-span-6 space-y-6 reveal">
+          <p class="text-xs font-mono uppercase tracking-[0.3em] text-[#4F8CFF]">About me</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">Bridging generative AI with high-impact execution</h2>
+          <p class="text-base text-zinc-300 leading-relaxed">I'm Rasel Mia, an AI-focused digital creator and digital marketing professional with experience in AI tools, prompt engineering, content creation, social media management, and digital marketing.</p>
+          <p class="text-base text-zinc-400 leading-relaxed">I specialise in bridging advanced artificial intelligence with strategic marketing and creative production — developing scalable automated workflows, engineered prompt systems, high-engagement multimedia content, and data-backed campaigns that turn ideas into measurable growth.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
             <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
               <div class="text-2xl font-extrabold text-[#4F8CFF] font-mono">100+</div>
               <div class="text-xs font-bold text-white mt-1">Prompt Frameworks</div>
               <div class="text-[11px] text-zinc-400 mt-0.5">Engineered & Tested</div>
             </div>
             <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
-              <div class="text-2xl font-extrabold text-[#4F8CFF] font-mono">50+</div>
+              <div class="text-2xl font-extrabold text-[#8B7BFF] font-mono">50+</div>
               <div class="text-xs font-bold text-white mt-1">Creative Campaigns</div>
               <div class="text-[11px] text-zinc-400 mt-0.5">Multi-platform Assets</div>
             </div>
             <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
-              <div class="text-2xl font-extrabold text-[#4F8CFF] font-mono">24/7</div>
+              <div class="text-2xl font-extrabold text-[#C084FC] font-mono">24/7</div>
               <div class="text-xs font-bold text-white mt-1">Automated Systems</div>
               <div class="text-[11px] text-zinc-400 mt-0.5">Scalable Workflows</div>
             </div>
@@ -279,37 +412,41 @@
   </section>
 
   <!-- Toolkit Section -->
-  <section id="expertise" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+  <section id="expertise" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06] bg-[#09090b]/50">
     <div class="max-w-7xl mx-auto space-y-12">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <h2 class="text-3xl font-bold text-white tracking-tight">Specialized AI & Growth Toolkit</h2>
+      <div class="text-center max-w-2xl mx-auto space-y-3 reveal">
+        <p class="text-xs font-mono uppercase tracking-[0.3em] text-[#4F8CFF]">Expertise</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">Specialized AI & Growth Toolkit</h2>
         <p class="text-sm text-zinc-400">Battle-tested tools and frameworks powering modern multi-channel automation.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="reveal group p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] hover:border-[#4F8CFF]/50 hover:-translate-y-1 transition-all space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-[#4F8CFF]/15 text-[#4F8CFF] flex items-center justify-center text-lg">✦</div>
           <h3 class="text-base font-bold text-white">Generative AI & LLMs</h3>
           <p class="text-xs text-zinc-400">Advanced prompt engineering, multi-turn system prompts, and context optimization.</p>
           <div class="flex flex-wrap gap-2 pt-2">
             <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">ChatGPT Plus</span>
-            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Claude 3.5</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Claude</span>
             <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Google Gemini</span>
             <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">DeepSeek</span>
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+        <div class="reveal group p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] hover:border-[#8B7BFF]/50 hover:-translate-y-1 transition-all space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-[#8B7BFF]/15 text-[#8B7BFF] flex items-center justify-center text-lg">◐</div>
           <h3 class="text-base font-bold text-white">AI Visual & Video Studio</h3>
           <p class="text-xs text-zinc-400">High-fidelity photo realism, consistent character generation, and video synthesis.</p>
           <div class="flex flex-wrap gap-2 pt-2">
-            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Midjourney v6</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Midjourney</span>
             <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Kling AI</span>
             <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Luma Dream Machine</span>
-            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Runway Gen-3</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#16161c] border border-white/[0.06] text-xs font-mono text-zinc-300">Runway</span>
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+        <div class="reveal group p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] hover:border-[#C084FC]/50 hover:-translate-y-1 transition-all space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-[#C084FC]/15 text-[#C084FC] flex items-center justify-center text-lg">↗</div>
           <h3 class="text-base font-bold text-white">Digital Marketing & SEO</h3>
           <p class="text-xs text-zinc-400">Data-driven performance campaigns, keyword clusters, and high-conversion copy.</p>
           <div class="flex flex-wrap gap-2 pt-2">
@@ -320,7 +457,8 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+        <div class="reveal group p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] hover:border-emerald-400/50 hover:-translate-y-1 transition-all space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-emerald-400/15 text-emerald-400 flex items-center justify-center text-lg">⟳</div>
           <h3 class="text-base font-bold text-white">Automation & Workflows</h3>
           <p class="text-xs text-zinc-400">No-code automation pipes connecting social channels, lead funnels, and databases.</p>
           <div class="flex flex-wrap gap-2 pt-2">
@@ -335,37 +473,63 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+  <section id="projects" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
     <div class="max-w-7xl mx-auto space-y-12">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <h2 class="text-3xl font-bold text-white tracking-tight">Featured Projects</h2>
+      <div class="text-center max-w-2xl mx-auto space-y-3 reveal">
+        <p class="text-xs font-mono uppercase tracking-[0.3em] text-[#4F8CFF]">Selected work</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">Featured Projects</h2>
         <p class="text-sm text-zinc-400">A snapshot of AI-driven content systems, automation pipelines, and marketing campaigns delivered end-to-end.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
-          <h3 class="text-base font-bold text-white">AI Content Automation Pipeline</h3>
-          <p class="text-xs text-zinc-400">Make.com + prompt-engineered workflows that generate, schedule, and publish social content automatically.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
-          <h3 class="text-base font-bold text-white">Prompt Framework Library</h3>
-          <p class="text-xs text-zinc-400">100+ tested prompt systems for marketing copy, SEO content, and creative campaign generation.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
-          <h3 class="text-base font-bold text-white">Multi-Platform Ad Campaigns</h3>
-          <p class="text-xs text-zinc-400">Data-driven Meta & Google Ads campaigns with GA4 tracking dashboards and conversion optimization.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
-          <h3 class="text-base font-bold text-white">AI Visual & Video Suite</h3>
-          <p class="text-xs text-zinc-400">Midjourney, Kling AI, and Runway-based production pipeline for brand imagery and short-form video.</p>
-        </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="reveal group rounded-2xl overflow-hidden bg-[#0e0e12] border border-white/[0.08] hover:border-[#4F8CFF]/50 transition-all">
+          <div class="relative aspect-square overflow-hidden">
+            <img src="assets/ai/ai-pipeline.jpg" alt="AI artwork: glowing cubes on a content conveyor" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="on-media absolute top-3 left-3 px-2 py-0.5 rounded-full bg-black/60 text-[10px] font-mono text-white">01 · Automation</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white">AI Content Automation Pipeline</h3>
+            <p class="text-xs text-zinc-400">Make.com + prompt-engineered workflows that generate, schedule, and publish social content automatically.</p>
+          </div>
+        </article>
+        <article class="reveal group rounded-2xl overflow-hidden bg-[#0e0e12] border border-white/[0.08] hover:border-[#4F8CFF]/50 transition-all">
+          <div class="relative aspect-square overflow-hidden">
+            <img src="assets/ai/ai-prompts.jpg" alt="AI artwork: an obsidian library of floating crystal tablets" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="on-media absolute top-3 left-3 px-2 py-0.5 rounded-full bg-black/60 text-[10px] font-mono text-white">02 · Prompts</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white">Prompt Framework Library</h3>
+            <p class="text-xs text-zinc-400">100+ tested prompt systems for marketing copy, SEO content, and creative campaign generation.</p>
+          </div>
+        </article>
+        <article class="reveal group rounded-2xl overflow-hidden bg-[#0e0e12] border border-white/[0.08] hover:border-[#4F8CFF]/50 transition-all">
+          <div class="relative aspect-square overflow-hidden">
+            <img src="assets/ai/ai-ads.jpg" alt="AI artwork: a glass chess board of glowing marketing pieces" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="on-media absolute top-3 left-3 px-2 py-0.5 rounded-full bg-black/60 text-[10px] font-mono text-white">03 · Ads</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white">Multi-Platform Ad Campaigns</h3>
+            <p class="text-xs text-zinc-400">Data-driven Meta & Google Ads campaigns with GA4 tracking dashboards and conversion optimization.</p>
+          </div>
+        </article>
+        <article class="reveal group rounded-2xl overflow-hidden bg-[#0e0e12] border border-white/[0.08] hover:border-[#4F8CFF]/50 transition-all">
+          <div class="relative aspect-square overflow-hidden">
+            <img src="assets/ai/ai-visual.jpg" alt="AI artwork: a camera melting into butterflies of light" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="on-media absolute top-3 left-3 px-2 py-0.5 rounded-full bg-black/60 text-[10px] font-mono text-white">04 · Visual</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white">AI Visual & Video Suite</h3>
+            <p class="text-xs text-zinc-400">Midjourney, Kling AI, and Runway-based production pipeline for brand imagery and short-form video.</p>
+          </div>
+        </article>
       </div>
 
       <!-- Google Drive Portfolio CTA Banner -->
-      <div class="max-w-5xl mx-auto text-center space-y-6 p-8 rounded-2xl bg-[#0c0c10] border border-[#4F8CFF]/30">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white">Explore My Live Work Archive On Google Drive</h2>
-        <p class="text-sm text-zinc-400 max-w-xl mx-auto">Access original high-resolution graphic creatives, AI image batches, video workflows, and campaign case studies directly.</p>
-        <div>
+      <div class="reveal relative max-w-5xl mx-auto text-center space-y-6 p-8 sm:p-12 rounded-3xl bg-[#0c0c10] border border-[#4F8CFF]/30 overflow-hidden">
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[36rem] h-48 bg-[#4F8CFF]/20 blur-3xl rounded-full pointer-events-none"></div>
+        <h2 class="relative font-display text-2xl sm:text-3xl font-bold text-white">Explore My Live Work Archive On Google Drive</h2>
+        <p class="relative text-sm text-zinc-400 max-w-xl mx-auto">Access original high-resolution graphic creatives, AI image batches, video workflows, and campaign case studies directly.</p>
+        <div class="relative">
           <a href="https://drive.google.com/drive/folders/1WflQMr6vlgr_fWmB8KeWdNhaVBFaV8JZ?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#4F8CFF] text-white font-bold text-xs hover:bg-[#3371f2] shadow-lg shadow-[#4F8CFF]/20 transition-all">
             <span>Open Google Drive Portfolio</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -376,85 +540,121 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06] bg-[#09090b]/50">
+  <section id="services" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06] bg-[#09090b]/50">
     <div class="max-w-7xl mx-auto space-y-12">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <h2 class="text-3xl font-bold text-white tracking-tight">Services</h2>
+      <div class="text-center max-w-2xl mx-auto space-y-3 reveal">
+        <p class="text-xs font-mono uppercase tracking-[0.3em] text-[#4F8CFF]">What I do</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">Services</h2>
         <p class="text-sm text-zinc-400">Flexible engagement models across AI content, automation, and performance marketing.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="reveal p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] hover:border-[#4F8CFF]/50 transition-all space-y-3">
+          <div class="font-mono text-xs text-[#4F8CFF]">/01</div>
           <h3 class="text-base font-bold text-white">AI Content Creation</h3>
           <p class="text-xs text-zinc-400">High-engagement multimedia content produced with generative AI tools, tailored to brand voice.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+        <div class="reveal p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] hover:border-[#4F8CFF]/50 transition-all space-y-3">
+          <div class="font-mono text-xs text-[#4F8CFF]">/02</div>
           <h3 class="text-base font-bold text-white">Prompt Engineering & AI Consulting</h3>
           <p class="text-xs text-zinc-400">Custom prompt systems and multi-turn workflows for teams adopting LLMs into their stack.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+        <div class="reveal p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] hover:border-[#4F8CFF]/50 transition-all space-y-3">
+          <div class="font-mono text-xs text-[#4F8CFF]">/03</div>
           <h3 class="text-base font-bold text-white">Digital Marketing & SEO</h3>
           <p class="text-xs text-zinc-400">Performance campaigns, keyword strategy, and high-conversion copywriting backed by analytics.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-3">
+        <div class="reveal p-6 rounded-2xl bg-[#0e0e12] border border-white/[0.08] hover:border-[#4F8CFF]/50 transition-all space-y-3">
+          <div class="font-mono text-xs text-[#4F8CFF]">/04</div>
           <h3 class="text-base font-bold text-white">Automation & Workflow Systems</h3>
           <p class="text-xs text-zinc-400">No-code pipelines connecting social channels, lead funnels, and databases for hands-off operations.</p>
         </div>
       </div>
 
-      <div class="text-center">
+      <div class="text-center flex flex-wrap justify-center gap-3">
         <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#4F8CFF] text-white font-bold text-xs hover:bg-[#3371f2] shadow-lg shadow-[#4F8CFF]/20 transition-all">
           <span>Discuss Your Project</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </a>
+        <button type="button" onclick="openChat('Which service would be best for my business?')" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#161616] text-zinc-300 border border-white/[0.1] hover:border-[#8B7BFF]/60 hover:text-white transition-all text-xs font-mono">✦ Ask the AI which service fits</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3 reveal">
+        <p class="text-xs font-mono uppercase tracking-[0.3em] text-[#4F8CFF]">Beyond the screen</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">Where the ideas come from</h2>
+        <p class="text-sm text-zinc-400">Sunsets, summits and fresh air — the moments that keep my creativity sharp.</p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <figure class="reveal relative rounded-2xl overflow-hidden border border-white/[0.08] group">
+          <img src="assets/photos/rasel-sunset.jpg" alt="Rasel Mia watching the sunset on the beach" loading="lazy" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-700" />
+          <figcaption class="on-media absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-xs font-mono text-white">Golden hour · Sea beach</figcaption>
+        </figure>
+        <figure class="reveal relative rounded-2xl overflow-hidden border border-white/[0.08] group">
+          <img src="assets/photos/rasel-summit.jpg" alt="Rasel Mia with arms wide open on a hilltop viewpoint" loading="lazy" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-700" />
+          <figcaption class="on-media absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-xs font-mono text-white">On top of the hills</figcaption>
+        </figure>
+        <figure class="reveal relative col-span-2 lg:col-span-1 rounded-2xl overflow-hidden border border-white/[0.08] group">
+          <img src="assets/photos/rasel-outdoor.jpg" alt="Rasel Mia in a blue polo outdoors" loading="lazy" class="w-full aspect-[16/10] lg:aspect-[3/4] object-cover object-[50%_25%] group-hover:scale-105 transition-transform duration-700" />
+          <figcaption class="on-media absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-xs font-mono text-white">Exploring Bangladesh</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+  <section id="contact" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 border-t border-white/[0.06] bg-[#09090b]/50">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div class="lg:col-span-5 space-y-6">
-          <h2 class="text-3xl font-bold text-white tracking-tight">Let's Connect & Collaborate</h2>
+        <div class="lg:col-span-5 space-y-6 reveal">
+          <p class="text-xs font-mono uppercase tracking-[0.3em] text-[#4F8CFF]">Contact</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">Let's Connect & Collaborate</h2>
           <p class="text-sm text-zinc-400 leading-relaxed">Have an AI content pipeline, digital marketing campaign, or prompt automation requirement? Reach out directly.</p>
 
           <div class="space-y-3 pt-2">
             <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
               <div class="text-[10px] font-mono text-zinc-500 uppercase">Email</div>
-              <a href="mailto:raselislam7828@gmail.com" class="text-xs font-semibold text-white hover:text-[#4F8CFF]">raselislam7828@gmail.com</a>
+              <a href="mailto:raselislam7828@gmail.com" class="text-sm font-semibold text-white hover:text-[#4F8CFF] break-all">raselislam7828@gmail.com</a>
             </div>
             <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
               <div class="text-[10px] font-mono text-zinc-500 uppercase">Phone & WhatsApp</div>
-              <a href="tel:01886-287828" class="text-xs font-semibold text-white hover:text-[#4F8CFF]">01886-287828</a>
+              <a href="tel:01886-287828" class="text-sm font-semibold text-white hover:text-[#4F8CFF]">01886-287828</a>
             </div>
             <div class="p-4 rounded-xl bg-[#111115] border border-white/[0.06]">
               <div class="text-[10px] font-mono text-zinc-500 uppercase">Telegram</div>
-              <span class="text-xs font-semibold text-white">@Rasel7828</span>
+              <a href="https://t.me/Rasel7828" target="_blank" rel="noopener" class="text-sm font-semibold text-white hover:text-[#4F8CFF]">@Rasel7828</a>
             </div>
           </div>
         </div>
 
-        <div class="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4">
+        <div class="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#0e0e12] border border-white/[0.08] space-y-4 reveal">
           <h3 class="text-lg font-bold text-white">Send Direct Message</h3>
-          <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been received. Rasel Mia will reach out shortly.');" class="space-y-4">
+          <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="subject" value="New portfolio message (%{submissionId})" />
+            <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-xs text-zinc-400 mb-1">Your Name</label>
-                <input type="text" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#14141a] border border-white/[0.1] text-xs text-white focus:outline-none focus:border-[#4F8CFF]" placeholder="Your name..." />
+                <input type="text" name="name" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#14141a] border border-white/[0.1] text-sm text-white focus:outline-none focus:border-[#4F8CFF]" placeholder="Your name..." />
               </div>
               <div>
                 <label class="block text-xs text-zinc-400 mb-1">Your Email</label>
-                <input type="email" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#14141a] border border-white/[0.1] text-xs text-white focus:outline-none focus:border-[#4F8CFF]" placeholder="name@company.com" />
+                <input type="email" name="email" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#14141a] border border-white/[0.1] text-sm text-white focus:outline-none focus:border-[#4F8CFF]" placeholder="name@company.com" />
               </div>
             </div>
             <div>
               <label class="block text-xs text-zinc-400 mb-1">Message</label>
-              <textarea rows="4" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#14141a] border border-white/[0.1] text-xs text-white focus:outline-none focus:border-[#4F8CFF]" placeholder="Tell me about your project or business goals..."></textarea>
+              <textarea name="message" rows="5" required class="w-full px-3.5 py-2.5 rounded-lg bg-[#14141a] border border-white/[0.1] text-sm text-white focus:outline-none focus:border-[#4F8CFF]" placeholder="Tell me about your project or business goals..."></textarea>
             </div>
-            <button type="submit" class="w-full py-3.5 rounded-lg bg-[#4F8CFF] text-white font-bold text-xs hover:bg-[#3371f2] transition-colors shadow-md shadow-[#4F8CFF]/20">
+            <button id="contactSubmit" type="submit" class="w-full py-3.5 rounded-lg bg-[#4F8CFF] text-white font-bold text-xs hover:bg-[#3371f2] disabled:opacity-60 transition-colors shadow-md shadow-[#4F8CFF]/20">
               Send Message
             </button>
+            <p id="contactStatus" class="hidden text-xs text-center" role="status"></p>
           </form>
         </div>
       </div>
@@ -462,7 +662,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-white/[0.08] bg-[#070709] text-xs text-zinc-500">
+  <footer class="relative z-10 py-12 px-4 sm:px-6 lg:px-8 border-t border-white/[0.08] bg-[#070709] text-xs text-zinc-500">
     <div class="max-w-7xl mx-auto space-y-8">
       <div class="flex flex-col items-center gap-4">
         <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">Connect With Me</span>
@@ -489,13 +689,53 @@
     </div>
   </footer>
 
+  <!-- AI Chat Widget -->
+  <button id="chatLauncher" type="button" onclick="toggleChat()" class="fixed bottom-5 right-5 z-[60] group flex items-center gap-2 p-1.5 sm:pl-2 sm:pr-4 sm:py-2 rounded-full bg-gradient-to-r from-[#4F8CFF] to-[#8B7BFF] text-white shadow-2xl shadow-[#4F8CFF]/40 hover:scale-105 transition-transform focus:outline-none" aria-label="Chat with Rasel's AI assistant">
+    <span class="relative w-9 h-9 rounded-full overflow-hidden border-2 border-white/70">
+      <img src="assets/rasel-mia.jpeg" alt="" class="w-full h-full object-cover" />
+    </span>
+    <span class="hidden sm:inline text-xs font-bold">Ask Rasel's AI</span>
+    <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-[#070707]"></span>
+  </button>
+
+  <div id="chatPanel" class="fixed z-[70] inset-x-0 bottom-0 sm:inset-x-auto sm:right-5 sm:bottom-5 sm:w-[390px] h-[85vh] sm:h-[600px] max-h-[100dvh] hidden flex-col rounded-t-3xl sm:rounded-3xl bg-[#0c0c10] border border-white/[0.1] shadow-2xl shadow-black/70 overflow-hidden" role="dialog" aria-label="AI assistant chat">
+    <div class="relative p-4 border-b border-white/[0.08] bg-gradient-to-r from-[#4F8CFF]/20 via-[#8B7BFF]/15 to-[#C084FC]/20 flex items-center gap-3">
+      <div class="relative w-10 h-10 rounded-full overflow-hidden border border-[#4F8CFF]/50">
+        <img src="assets/rasel-mia.jpeg" alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="flex-1">
+        <div class="text-sm font-bold text-white">Rasel AI Assistant</div>
+        <div class="text-[11px] text-zinc-400 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online · replies in Bangla or English</div>
+      </div>
+      <button type="button" onclick="toggleChat(false)" class="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/10 focus:outline-none" aria-label="Close chat">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+    </div>
+
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 text-sm"></div>
+
+    <div id="chatSuggestions" class="px-4 pb-2 flex flex-wrap gap-2">
+      <button type="button" data-ask="What services do you offer?" class="ask-chip px-3 py-1 rounded-full bg-[#16161c] border border-white/[0.08] text-[11px] text-zinc-300 hover:border-[#4F8CFF]/50">Services?</button>
+      <button type="button" data-ask="Show me your past projects" class="ask-chip px-3 py-1 rounded-full bg-[#16161c] border border-white/[0.08] text-[11px] text-zinc-300 hover:border-[#4F8CFF]/50">Projects</button>
+      <button type="button" data-ask="How can I contact you?" class="ask-chip px-3 py-1 rounded-full bg-[#16161c] border border-white/[0.08] text-[11px] text-zinc-300 hover:border-[#4F8CFF]/50">Contact</button>
+      <button type="button" data-ask="আপনি কী কী কাজ করেন?" class="ask-chip px-3 py-1 rounded-full bg-[#16161c] border border-white/[0.08] text-[11px] text-zinc-300 hover:border-[#4F8CFF]/50">আপনি কী কাজ করেন?</button>
+    </div>
+
+    <form id="chatForm" class="p-3 border-t border-white/[0.08] flex items-end gap-2">
+      <textarea id="chatInput" rows="1" maxlength="1500" class="flex-1 resize-none max-h-28 px-3.5 py-2.5 rounded-xl bg-[#14141a] border border-white/[0.1] text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:border-[#4F8CFF]" placeholder="Type your question…"></textarea>
+      <button id="chatSend" type="submit" class="p-3 rounded-xl bg-[#4F8CFF] text-white hover:bg-[#3371f2] disabled:opacity-50 transition-colors" aria-label="Send">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </button>
+    </form>
+  </div>
+
   <!-- Theme Switcher & Canvas Animation -->
   <script>
     function updateThemeUI(isDark) {
       const html = document.documentElement;
       const icon = document.getElementById('themeIcon');
       const label = document.getElementById('themeLabel');
-      
+
       if (isDark) {
         html.classList.add('dark');
         html.classList.remove('light');
@@ -524,11 +764,23 @@
       updateThemeUI(newDark);
     }
 
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
     (function() {
       const saved = localStorage.getItem('rasel_theme');
       const isDark = saved ? saved === 'dark' : true;
       updateThemeUI(isDark);
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Scroll reveal
+      const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 }) : null;
+      document.querySelectorAll('.reveal').forEach((el) => io ? io.observe(el) : el.classList.add('is-visible'));
 
       const canvas = document.getElementById('ambientCanvas');
       if (!canvas) return;
@@ -609,6 +861,182 @@
       }
       draw();
     })();
+  </script>
+
+  <!-- AI Chat Assistant -->
+  <script>
+    const chatHistory = [];
+    let chatBusy = false;
+
+    const chatPanel = document.getElementById('chatPanel');
+    const chatLauncher = document.getElementById('chatLauncher');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+
+    function escapeHtml(s) {
+      return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    // Tiny, safe markdown: escapes HTML first, then supports bold, links and bullet lists.
+    function renderMarkdown(text) {
+      const inline = (s) => escapeHtml(s)
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        .replace(/(^|[\s(])(https?:\/\/[^\s<)]+)/g, '$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+      const out = [];
+      let list = null;
+      for (const raw of text.split('\n')) {
+        const line = raw.trim();
+        const bullet = line.match(/^[-*•]\s+(.*)/) || line.match(/^\d+[.)]\s+(.*)/);
+        if (bullet) {
+          if (!list) { list = []; }
+          list.push('<li>' + inline(bullet[1]) + '</li>');
+          continue;
+        }
+        if (list) { out.push('<ul>' + list.join('') + '</ul>'); list = null; }
+        if (line) out.push('<p>' + inline(line.replace(/^#+\s*/, '')) + '</p>');
+      }
+      if (list) out.push('<ul>' + list.join('') + '</ul>');
+      return out.join('');
+    }
+
+    function addBubble(role, text) {
+      const wrap = document.createElement('div');
+      wrap.className = role === 'user' ? 'flex justify-end' : 'flex justify-start gap-2';
+      const bubble = document.createElement('div');
+      bubble.className = role === 'user'
+        ? 'max-w-[85%] px-3.5 py-2.5 rounded-2xl rounded-br-md bg-[#4F8CFF] text-white whitespace-pre-wrap break-words'
+        : 'chat-md max-w-[85%] px-3.5 py-2.5 rounded-2xl rounded-bl-md bg-[#16161c] border border-white/[0.06] text-zinc-200 break-words';
+      if (role === 'user') bubble.textContent = text; else bubble.innerHTML = text ? renderMarkdown(text) : '';
+      wrap.appendChild(bubble);
+      chatMessages.appendChild(wrap);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return bubble;
+    }
+
+    function toggleChat(force) {
+      const open = typeof force === 'boolean' ? force : chatPanel.classList.contains('hidden');
+      chatPanel.classList.toggle('hidden', !open);
+      chatPanel.classList.toggle('flex', open);
+      chatLauncher.classList.toggle('hidden', open);
+      if (open) {
+        if (!chatMessages.children.length) {
+          addBubble('assistant', "Hi! 👋 I'm Rasel's AI assistant. Ask me anything about Rasel's skills, services, projects or how to work together.\n\nআসসালামু আলাইকুম! বাংলাতেও প্রশ্ন করতে পারেন।");
+        }
+        setTimeout(() => chatInput.focus(), 50);
+      }
+    }
+
+    function openChat(question) {
+      toggleChat(true);
+      if (question) sendChat(question);
+    }
+
+    async function sendChat(text) {
+      text = (text || '').trim();
+      if (!text || chatBusy) return;
+      chatBusy = true;
+      chatSend.disabled = true;
+      document.getElementById('chatSuggestions').classList.add('hidden');
+
+      addBubble('user', text);
+      chatHistory.push({ role: 'user', content: text });
+
+      const bubble = addBubble('assistant', '');
+      bubble.innerHTML = '<span class="typing inline-flex gap-1"><span>●</span><span>●</span><span>●</span></span>';
+
+      let reply = '';
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: chatHistory.slice(-12) }),
+        });
+        if (!res.ok || !res.body) throw new Error('Request failed');
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          reply += decoder.decode(value, { stream: true });
+          bubble.innerHTML = renderMarkdown(reply);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        if (!reply.trim()) throw new Error('Empty reply');
+        chatHistory.push({ role: 'assistant', content: reply });
+      } catch (err) {
+        chatHistory.pop();
+        bubble.innerHTML = renderMarkdown("Sorry, I couldn't answer right now. Please try again, or reach Rasel directly at **raselislam7828@gmail.com** or WhatsApp **01886-287828**.");
+      } finally {
+        chatBusy = false;
+        chatSend.disabled = false;
+        chatInput.focus();
+      }
+    }
+
+    document.getElementById('chatForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = chatInput.value;
+      chatInput.value = '';
+      chatInput.style.height = '';
+      sendChat(text);
+    });
+
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        document.getElementById('chatForm').requestSubmit();
+      }
+    });
+
+    chatInput.addEventListener('input', () => {
+      chatInput.style.height = 'auto';
+      chatInput.style.height = Math.min(chatInput.scrollHeight, 112) + 'px';
+    });
+
+    document.getElementById('heroAskForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('heroAskInput');
+      const text = input.value;
+      input.value = '';
+      openChat(text);
+    });
+
+    document.querySelectorAll('.ask-chip').forEach((btn) => {
+      btn.addEventListener('click', () => openChat(btn.dataset.ask));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !chatPanel.classList.contains('hidden')) toggleChat(false);
+    });
+
+    // Contact form: submit to Netlify Forms without leaving the page
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('contactSubmit');
+      const status = document.getElementById('contactStatus');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString(),
+        });
+        if (!res.ok) throw new Error('Submit failed');
+        form.reset();
+        status.className = 'text-xs text-center text-emerald-400';
+        status.textContent = "Thank you! Your message has been sent. Rasel will get back to you shortly.";
+      } catch (err) {
+        status.className = 'text-xs text-center text-red-400';
+        status.textContent = 'Sorry, the message could not be sent. Please email raselislam7828@gmail.com instead.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
+    });
   </script>
 </body>
 </html>
